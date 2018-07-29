@@ -16,8 +16,14 @@ function newTodo() {
    *code will go here
    *may want to use dynamic arrays using push function
    *to store todos as strings
-   */ 
-  let todo = window.prompt(todo);
-  todoList.push(todo)
+   */   
+  //Input string to variable
+	let toDoString = prompt('Input what you need to do here'); 
+	/*Object to be defined as a TODO, includes string with info*/ 
+	const todo = {}
+		todo.name = "TODO"
+		todo.info = toDoString;
+  todoList.push(todo);
+
   //alert('New TODO button clicked!')
 }
