@@ -5,7 +5,8 @@ const classNames = {
   TODO_DELETE: 'todo-delete',
 }
 
-let todoList = []; //Array to store todos
+let todoList = []; 	//Array to store todos
+let listIndex = 0;	//Used to store number of items in the list
 
 const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
@@ -17,11 +18,12 @@ function newTodo() {
    *may want to use dynamic arrays using push function
    *to store todos as strings
    */   
+	listIndex++; 			//increment list index, first function call should = 1
   //Input string to variable
 	let toDoString = prompt('Input what you need to do here'); 
 	/*Object to be defined as a TODO, includes string with info*/ 
 	const todo = {}
-		todo.name = "TODO"
+		todo.name = "TODO " + listIndex; 
 		todo.info = toDoString;
   todoList.push(todo);
 
