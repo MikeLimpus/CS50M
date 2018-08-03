@@ -1,3 +1,15 @@
+let todoList = []; 	//Array to store todos
+let listIndex = 0;	//Used to store number of items in the list
+class ToDo {
+  constructor(name, info) {
+    this.name = name;
+    this.info = info;
+  }
+  isChecked(elementName) {
+    return document.getElementById(elementName).checked;
+  }
+}
+
 const classNames = {
   TODO_ITEM: 'todo-container',
   TODO_CHECKBOX: 'todo-checkbox',
@@ -5,8 +17,7 @@ const classNames = {
   TODO_DELETE: 'todo-delete',
 }
 
-let todoList = []; 	//Array to store todos
-let listIndex = 0;	//Used to store number of items in the list
+
 
 const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
@@ -17,11 +28,10 @@ function newTodo() {
   itemCountSpan.textContent = listIndex;
   /*Input string to variable*/
 	let toDoString = window.prompt('Input what you need to do here'); 
-	/*Object to be defined as a TODO, includes string with info*/ 
-	const todo = {}
-		todo.name = "TODO " + listIndex; 
-    todo.info = toDoString;
-  list.innerHTML += '<input type="checkbox" name="TODO" value="TODO">' + todo.info + '<br>';
+	/*Object to be defined as a TODO, includes string with name and info*/ 
+  const todo = new ToDo("TODO" + listIndex, toDoString);
+
+  list.innerHTML += '<input type="checkbox" id="TODO ${listIndex}" value="TODO">' + todo.info + '<br>';
     //"<h4>" + todo.name + "</h4>"  +
     //"<p>" + todo.info + "</p>";
   todoList.push(todo);
