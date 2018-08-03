@@ -5,7 +5,8 @@ class ToDo {
     this.name = name;
     this.info = info;
   }
-  isChecked(elementName) {
+  
+  isChecked(elementName) { //TODO: fix this
     return document.getElementById(elementName).checked;
   }
 }
