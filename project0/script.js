@@ -39,3 +39,12 @@ function newTodo() {
 function checker() {
 		uncheckedCountSpan.textContent--;
 }
+
+
+/*
+<li>
+	<input type="checkbox" />
+	<button>delete</button>
+	<span>text</span>
+</li>
+*/
