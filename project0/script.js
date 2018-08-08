@@ -13,13 +13,10 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
-
-
-
 function newTodo() {   
-	listIndex++; 			//increment list index, first function call should = 1
+	listIndex++; 		//increment list index, first function call should = 1
 	uncheckedListIndex++;
-	let check = false;
+	let check = true;
 	itemCountSpan.textContent = listIndex;
 	uncheckedCountSpan.textContent = uncheckedListIndex;
   	/*Input string to variable*/
@@ -31,19 +28,17 @@ function newTodo() {
 
 	list.innerHTML += `
 		<input type="checkbox" 
-		checked="${check}
 		class="todo-checkbox" 
 		name= "TODO ${listIndex}"
-		value="TODO" onClick="checker()"> 
+		onClick="checker()"> 
 		${todo.info} <br>`;
-	//const checkBox = document.createElement('div');
-	
+
 	todoList.push(todo);
 	
 }
 
 function checker() {
-		uncheckedCountSpan.textContent--;
+	uncheckedCountSpan.textContent--;
 }
 
 
@@ -54,3 +49,10 @@ function checker() {
 	<span>text</span>
 </li>
 */
+
+/*
+ * Known bugs
+ * Unchecked counter decrements regardless of check box
+ * itemCountSpan increments regardless of if a new todo is actually created or 
+ * not
+ */ 
