@@ -13,32 +13,34 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
-function newTodo() {   
+function newTodo() {
 	listIndex++; 		//increment list index, first function call should = 1
 	uncheckedListIndex++;
-	let check = true;
+	
 	itemCountSpan.textContent = listIndex;
 	uncheckedCountSpan.textContent = uncheckedListIndex;
   	/*Input string to variable*/
-	let toDoString = window.prompt('Input what you need to do here'); 	
-	/*Object to be defined as a TODO, includes string with name and info*/ 
-	const todo = {} 
+	let toDoString = window.prompt('Input what you need to do here');
+	/*Object to be defined as a TODO, includes string with name and info*/
+	const todo = {}
 		todo.name = "TODO" + listIndex;
 		todo.info = toDoString;
-
+	let box = $('#checkbox')
 	list.innerHTML += `
-		<input type="checkbox" 
-		class="todo-checkbox" 
-		name= "TODO ${listIndex}"
-		onClick="checker()"> 
+		<input type="checkbox"
+		class="todo-checkbox"
+		id= "TODO ${listIndex}"
+		onClick="checker ${listIndex}">
 		${todo.info} <br>`;
-
+		function checker(todoNum) {
+			if ($(`TODO ${todoNum}.is(":checked"`)) {
+				uncheckedCountSpan++;
+			}
+			else {
+				uncheckedCountSpan--;
+			}
+		}
 	todoList.push(todo);
-	
-}
-
-function checker() {
-	uncheckedCountSpan.textContent--;
 }
 
 
@@ -53,6 +55,6 @@ function checker() {
 /*
  * Known bugs
  * Unchecked counter decrements regardless of check box
- * itemCountSpan increments regardless of if a new todo is actually created or 
+ * itemCountSpan increments regardless of if a new todo is actually created or
  * not
- */ 
+ */
