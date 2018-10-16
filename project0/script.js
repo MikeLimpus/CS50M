@@ -1,3 +1,9 @@
+/*
+ * Jonathan Limpus
+ * edX CS50M Project 0
+ * script.js
+ */
+
 let todoList = []; 	//Array to store todos
 let listIndex = 0;	//Used to store number of items in the list
 let uncheckedListIndex = 0;
@@ -13,6 +19,8 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
+function checker(todoNum){}
+
 function newTodo() {
 	listIndex++; 		//increment list index, first function call should = 1
 	uncheckedListIndex++;
@@ -25,12 +33,12 @@ function newTodo() {
 	const todo = {}
 		todo.name = "TODO" + listIndex;
 		todo.info = toDoString;
-	let box = $('#checkbox')
+	//let box = $('#checkbox')
 	list.innerHTML += `
 		<input type="checkbox"
 		class="todo-checkbox"
 		id= "TODO ${listIndex}"
-		onClick="checker ${listIndex}">
+		onClick="checker(${listIndex})">
 		${todo.info} <br>`;
 		function checker(todoNum) {
 			if ($(`TODO ${todoNum}.is(":checked"`)) {
@@ -42,6 +50,7 @@ function newTodo() {
 		}
 	todoList.push(todo);
 }
+
 
 
 /*
